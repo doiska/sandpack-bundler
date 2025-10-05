@@ -3,8 +3,8 @@ FROM node:16-alpine AS builder
 
 WORKDIR /build
 
-# Install git (needed to clone the repo)
-RUN apk add --no-cache git
+# Install git and zstd (needed to clone the repo and decompress packages)
+RUN apk add --no-cache git zstd
 
 # Clone codesandbox-client repository
 RUN git clone https://github.com/codesandbox/codesandbox-client.git .
